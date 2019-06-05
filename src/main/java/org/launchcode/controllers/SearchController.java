@@ -26,7 +26,7 @@ public class SearchController {
     }
 
     // TODO #1 - Create handler to process search request and display results
-    @RequestMapping(value="results") //why isn't this post???
+    @RequestMapping(value="results", method = RequestMethod.POST)
     //instructions: 'The method should take in two parameters, specifying the type of search
     // and the search term'
     public String results(Model model, @RequestParam String searchType, @RequestParam String searchTerm) {
