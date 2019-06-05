@@ -10,7 +10,8 @@
 
     <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
 
-    <form th:action="@{/search/results}">
+    <form th:action="@{/search/results}">  <!--how is it printing the radio choices when going to /search
+                                                not search/results???? -->
         <h2>Search by:</h2>
 
         <p>
@@ -37,6 +38,7 @@
     <hr />
 
     <!-- TODO #2 - Loop over jobs map to display all job fields -->
+
 
 </div>
 

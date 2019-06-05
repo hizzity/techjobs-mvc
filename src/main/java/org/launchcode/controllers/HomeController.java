@@ -19,8 +19,8 @@ public class HomeController {
         actionChoices.put("search", "Search");
         actionChoices.put("list", "List");
 
-        model.addAttribute("actions", actionChoices);
-
+        model.addAttribute("actions", actionChoices); //passing the hashmap
+                                                            //<(search, Search),(list, List))??????
         return "index";
     }
 

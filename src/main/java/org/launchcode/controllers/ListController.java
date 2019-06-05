@@ -31,13 +31,15 @@ public class ListController {
 
         model.addAttribute("columns", columnChoices);
 
-        return "list";
+        return "list"; //list.html prints h2 View All h2, loops through list of columns,
+                        // creating list of links for each column
+
     }
 
     @RequestMapping(value = "values")
     public String listColumnValues(Model model, @RequestParam String column) {
 
-        if (column.equals("all")) {
+        if (column.equals("all")) {        //NOT WORKING YET
             ArrayList<HashMap<String, String>> jobs = JobData.findAll();
             model.addAttribute("title", "All Jobs");
             model.addAttribute("jobs", jobs);
@@ -47,7 +49,8 @@ public class ListController {
             model.addAttribute("title", "All " + columnChoices.get(column) + " Values");
             model.addAttribute("column", column);
             model.addAttribute("items", items);
-            return "list-column";
+            return "list-column";  //WORKS  List, Position Type, Employer, etc model.add
+
         }
 
     }
