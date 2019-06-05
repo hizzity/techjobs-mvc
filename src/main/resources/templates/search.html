@@ -9,8 +9,9 @@
 <div class="container body-content">
 
     <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
-
-    <form th:action="@{/search/results}" th:method="post">
+<!-- how is this being displayed for /search as well as /search/results?-->
+    <form th:action="@{/search/results}"><!-- th:method="post" when I change method to post I lose my info
+    in the adddess bar????????????-->
         <h2>Search by:</h2>
 
         <p>
@@ -36,7 +37,21 @@
 
     <hr />
 
-    <!-- TODO #2 - Loop over jobs map to display all job fields -->
+    <!-- TODO #2 - Loop over jobs map to display all job fields
+    Display Search Results
+    After you have your search handler above passing data to the view, you need to display the data.
+    Open up search.html and create a loop to display each job passed in from the controller. You
+    should put each job in its own table, with one job field per row.
+
+    Add the CSS class "job-listing" to each of the tables to get some nice styling, courtesy of
+    Eliot's work!-->
+<div class="job-listing"/>
+    <ul>
+        <li th:each="column : ${columns}">
+            <a th:"@{/list/values(column=${column.key})}" th:text="${column.value}"</a>
+        </li>
+    </ul>
+</div>
 
 
 </div>
