@@ -35,7 +35,7 @@ public class SearchController {
     //in the address bar
     //instructions: 'The method should take in two parameters, specifying the type of search
     // and the search term'
-    public String results(Model model, @RequestParam String searchType, @RequestParam String searchTerm) {
+    public String search(Model model, @RequestParam String searchType, @RequestParam String searchTerm) {
         model.addAttribute("columns", columnChoices);
         model.addAttribute("column", searchType); //searchType = column
         model.addAttribute("searchTerm", searchTerm); //searchTerm = keyword being searched
