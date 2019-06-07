@@ -37,24 +37,19 @@ public class SearchController {
     public String search(Model model, @RequestParam String searchType, @RequestParam String searchTerm) {
         model.addAttribute("columns", columnChoices);
         model.addAttribute("searchType", searchType); //searchType = column
-        model.addAttribute("searchTerm", searchTerm); //searchTerm = keyword being searched
-                                                                  //need to loop through searchType looking for searchTerm
-//TODO if searchType is "all" then call findAll in JobData (refer to line 62 in ListControllers) else run below
+        model.addAttribute("searchTerm", searchTerm); //searchTerm = keyword that is being searched for
 
-//    JobData jobs = new JobData();
         ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
 
+//TODO 'all' is not working correctly
     if (searchType == "all") {
-//        jobs.findAll(searchTerm);
        jobs = JobData.findByValue(searchTerm); // how it's done in ListController
     }else {
-//        jobs.findByValue(searchTerm);
-        jobs = JobData.findByColumnAndValue(searchType, searchTerm);
+       jobs = JobData.findByColumnAndValue(searchType, searchTerm);
     }
 
         model.addAttribute("jobs", jobs); //pass ArrayList to search.html
 
-//        System.out.println("*************" + jobs + "******************"); //"search"
         return "search";
 
 

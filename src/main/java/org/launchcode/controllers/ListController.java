@@ -59,10 +59,10 @@ public class ListController {
     public String listJobsByColumnAndValue(Model model,
             @RequestParam String column, @RequestParam String value) {
 
-        ArrayList<HashMap<String, String>> jobs = JobData.findByColumnAndValue(column, value); //(searchType, searchTerm)
+        ArrayList<HashMap<String, String>> jobs = JobData.findByColumnAndValue(column, value);
         model.addAttribute("title", "Jobs with " + columnChoices.get(column) + ": " + value);
-        model.addAttribute("jobs", jobs);            //searchType                                 //searchTerm
-//option for search controller
+        model.addAttribute("jobs", jobs);
+
         return "list-jobs";
     }
 }
