@@ -6,12 +6,11 @@
 
 <div th:replace="fragments :: page-header"></div>
 
-<div class="container body-content">
+< class="container body-content">
 
     <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
 <!-- how is this being displayed for /search as well as /search/results?-->
-    <form th:action="@{/search/results}"><!-- th:method="post" when I change method to post I lose my info
-    in the adddess bar????????????-->
+    <form th:action="@{/search/results}">
         <h2>Search by:</h2>
 
         <p>
@@ -44,17 +43,19 @@
     should put each job in its own table, with one job field per row.
 
     Add the CSS class "job-listing" to each of the tables to get some nice styling, courtesy of
-    Eliot's work!-->
-<div class="job-listing"/>
-    <ul>
-        <li th:each="column : ${columns}">
-            <a th:"@{/list/values(column=${column.key})}" th:text="${column.value}"</a>
-        </li>
-    </ul>
+    Eliot's work!
+
+    Something like this:
+
+    <div class = "job-listing">
+    <table>
+        <tr th:each="item, idx : ${items}" th:class="${idx.odd} ? 'odd'">
+            <td><p th:text="${item}"></p></td>
+        </tr>
+    </table>
+
+    </div>  -->
+
 </div>
-
-
-</div>
-
 </body>
 </html>
