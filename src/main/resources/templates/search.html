@@ -45,17 +45,25 @@
     Add the CSS class "job-listing" to each of the tables to get some nice styling, courtesy of
     Eliot's work!
 
-    Something like this: -->
+    Something like this:-->
 
     <div class = "job-listing">
     <table>
-        <tr th:each="job, idx : ${jobs}" th:class="${idx.odd} ? 'odd'">
-            <td><p th:text="${job}"></p></td>
+        <tr th:each="job : ${jobs}" > <!--th:class="${idx.odd} ? 'odd'"-->
+
+            <td>
+
+                <div th:each="column : ${columns}">
+                <span th:text="${column.key}"></span> =
+                <span th:text="${column.value}"></span>
+            </div>
+
+            </td>
+
         </tr>
     </table>
-
+    </div>
     </div>
 
-</div>
 </body>
 </html>
