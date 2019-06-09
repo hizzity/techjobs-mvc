@@ -42,13 +42,13 @@ public class SearchController {
         ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
 
 //TODO 'all' is not working correctly
-    if (searchType == "all") {
-       jobs = JobData.findByValue(searchTerm); // how it's done in ListController
+    if (searchType.equals("all")) {
+       jobs = JobData.findByValue(searchTerm);
     }else {
        jobs = JobData.findByColumnAndValue(searchType, searchTerm);
     }
 
-        model.addAttribute("jobs", jobs); //pass ArrayList to search.html
+        model.addAttribute("jobs", jobs); //pass jobs ArrayList to search.html
 
         return "search";
 

@@ -48,22 +48,22 @@
     Something like this:-->
 
     <div class = "job-listing">
-    <table>
-        <tr th:each="job : ${jobs}" > <!--th:class="${idx.odd} ? 'odd'"-->
+        <table>
+            <tr th:each="job : ${jobs}" > <!--th:class="${idx.odd} ? 'odd'"-->
 
-            <td>
+                <td>
 
-                <div th:each="column : ${columns}">
-                <span th:text="${column.key}"></span> =
-                <span th:text="${column.value}"></span>
-            </div>
+                    <div th:each="column : ${columns}">
+                        <span th:text="${column.key}"></span> =
+                        <span th:text="${column.value}"></span>
+                    </div>
 
-            </td>
+                </td>
 
-        </tr>
-    </table>
+            </tr>
+        </table>
     </div>
-    </div>
+</div>
 
 </body>
 </html>
