@@ -46,24 +46,20 @@
     Eliot's work!
 
     Something like this:-->
+    <!-- I'm passing an arraylist of hashmaps from SearchController, should I be passing it as keys, values instead? -->
 
-    <div class = "job-listing">
-        <table>
-            <tr th:each="job : ${jobs}" > <!--th:class="${idx.odd} ? 'odd'"-->
-
-                <td>
-
-                    <div th:each="column : ${columns}">
-                        <span th:text="${column.key}"></span> =
-                        <span th:text="${column.value}"></span>
-                    </div>
-
-                </td>
-
+        <table th:fragment="jobs-table" class="job-listing" th:each="job : ${jobs}">
+            <tr th:each="map : ${jobs}">
+                <td th:text="${map.key}"></td>
+                <td th:text="${map.value}"></td>
             </tr>
+           <br/>  <!--break-->
         </table>
+
+
+
     </div>
-</div>
+
 
 </body>
 </html>

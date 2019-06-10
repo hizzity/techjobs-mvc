@@ -26,7 +26,7 @@ public class SearchController {
 
     @RequestMapping(value = "")
     public String search(Model model) {
-        model.addAttribute("columns", columnChoices);
+        model.addAttribute("columns", ListController.columnChoices);
         return "search";
     }
 
@@ -35,13 +35,12 @@ public class SearchController {
     //instructions: 'The method should take in two parameters, specifying the type of search
     // and the search term'
     public String search(Model model, @RequestParam String searchType, @RequestParam String searchTerm) {
-        model.addAttribute("columns", columnChoices);
+        model.addAttribute("columns", ListController.columnChoices);
         model.addAttribute("searchType", searchType); //searchType = column
         model.addAttribute("searchTerm", searchTerm); //searchTerm = keyword that is being searched for
 
         ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
-
-//TODO 'all' is not working correctly
+// I'm pass jobs...should I be passing as key, value sets?
     if (searchType.equals("all")) {
        jobs = JobData.findByValue(searchTerm);
     }else {
@@ -49,6 +48,15 @@ public class SearchController {
     }
 
         model.addAttribute("jobs", jobs); //pass jobs ArrayList to search.html
+//
+//        if (searchType.equals("all")) {
+//            ArrayList<HashMap<String, String>> jobs = JobData.findByValue(searchTerm);
+//            model.addAttribute("jobs", jobs);
+//        }else {
+//            ArrayList<HashMap<String, String>> jobs = JobData.findByColumnAndValue(searchType, searchTerm);
+//            model.addAttribute("jobs", jobs);
+//        }
+
 
         return "search";
 
