@@ -48,13 +48,13 @@
     Something like this:-->
     <!-- I'm passing an arraylist of hashmaps from SearchController, should I be passing it as keys, values instead? -->
 
-        <table th:fragment="jobs-table" class="job-listing" th:each="job : ${jobs}">
-            <tr th:each="map : ${jobs}">
+        <table th:class="job-listing" th:each="job : ${jobs}">
+            <tr th:each="map : ${job}">
                 <td th:text="${map.key}"></td>
                 <td th:text="${map.value}"></td>
             </tr>
            <br/>  <!--break-->
-        </table>
+            </table>
 
 
 
